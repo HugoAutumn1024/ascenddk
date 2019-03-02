@@ -86,7 +86,7 @@ install: all
 	$(Q)mkdir -p $(HOME)/ascend_ddk/include
 	$(Q)mkdir -p $(HOME)/ascend_ddk/device/lib
 	$(Q)cp -R $(OUT_INC_DIR)/* $(HOME)/ascend_ddk/include/
-	$(Q)cp -R $(OUT_DIR)/lib*.so $(HOME)/ascend_ddk/devic/lib/
+	$(Q)cp -R $(OUT_DIR)/lib*.so $(HOME)/ascend_ddk/device/lib/
 
 install pcie: 
 
