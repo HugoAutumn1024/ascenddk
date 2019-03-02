@@ -16,10 +16,11 @@ INC_DIR = \
 	-I$(DDK_HOME)/include/third_party/cereal/include \
 	-I$(DDK_HOME)/include/libc_sec/include \
 	-I../common/include \
+	-I$(HOME)/ascend_ddk/include \
 
 CC_FLAGS := $(INC_DIR) -std=c++11 -fPIC
 LNK_FLAGS := \
-	-L$(DDK_HOME)/host/lib/ \
+	-L$(HOME)/ascend_ddk/device/lib/ -L$(DDK_HOME)/device/lib/ \
 	-lmedia_mini \
 	-shared
 

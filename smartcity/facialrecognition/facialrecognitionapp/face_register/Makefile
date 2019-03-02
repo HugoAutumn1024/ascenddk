@@ -20,11 +20,12 @@ INC_DIR = \
 	-I$(DDK_HOME)/include/third_party/cereal/include \
 	-I$(DDK_HOME)/include/libc_sec/include \
 	-I../common/include \
+	-I$(HOME)/ascend_ddk/include \
 
 #这里添加编译参数
 CC_FLAGS := $(INC_DIR) -g -std=c++11 -fPIC -DCPU_ONLY
 LNK_FLAGS := \
-	-L$(DDK_HOME)/device/lib/ \
+	-L$(HOME)/ascend_ddk/device/lib/ -L$(DDK_HOME)/device/lib/ \
 	-lDvpp_api \
 	-lDvpp_jpeg_decoder \
 	-lDvpp_jpeg_encoder \
