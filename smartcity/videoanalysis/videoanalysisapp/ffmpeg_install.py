@@ -329,12 +329,12 @@ def main():
             print("[ERROR] FFmpeg install failed! Please check that the FFmpeg code is complete, the version is correct, and the permissions are correct. Then try again.")
             exit(-1)
         
-        # copy ffmpeg head files to ddk home
-        execute("mkdir -p {path}/include/third_party/ffmpeg".format(path=ddk_home))
-        execute("chmod -R 710 {path}/include/*".format(path=install_path))
-        execute("cp -rdp {path1}/include/* {path2}/include/third_party/ffmpeg".format(path1=install_path,path2=ddk_home))
-        execute("chmod -R 644 {path}/lib/*".format(path=install_path))
-        execute("cp -rdp {path1}/lib/* {path2}/device/lib".format(path1=install_path,path2=ddk_home))
+        # copy ffmpeg head files to ascend ddk home
+        ascend_ddk_home = os.path.join(
+            os.getenv("HOME"), "ascend_ddk")
+        execute("mkdir -p {path}/include/third_party/ffmpeg".format(path=ascend_ddk_home))
+        execute("cp -rdp {path1}/include/* {path2}/include/third_party/ffmpeg".format(path1=install_path,path2=ascend_ddk_home))
+        execute("cp -rdp {path1}/lib/* {path2}/device/lib".format(path1=install_path,path2=ascend_ddk_home))
 
         # adding engine setting in ddk configuration
         print("[INFO] Adding engine setting in DDK configuration.")
